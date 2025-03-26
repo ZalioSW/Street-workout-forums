@@ -20,18 +20,18 @@
                     <li class="nav-item">
                         <a href="/posts">Posts</a>
                     </li>
-					<li class="nav-item">
-						<a href="/signup">Sign up</a>
-					</li>
-                    <li class="nav-item">
-                        <a href="/login">Login</a>
-                    </li>
                 </ul>
             </nav>
             <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
             <div class="brand">Street Workout Forum</div>
         </div>
-        {{ session.ime }}
+        <div>
+            {% if username %}
+                <p>{{username}}</p>
+            {% else %}
+                <a href="/login">Login</a>
+            {% endif %}
+        </div>
     </header>
 	<div class="container">
         <div class="subforum">

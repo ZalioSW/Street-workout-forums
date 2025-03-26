@@ -37,9 +37,10 @@
             Login
         </div>
         <div class="signup-prijava">
-            Username: <input type="text" id="ime"><br>
-            Password: <input type="password" id="geslo"><br>
-            <a href="" onclick="" class="signup-knof">Login</a><br>
+            <div id="error-message" style="color: red; display: none;"></div>
+            Username: <input type="text" id="username"><br>
+            Password: <input type="password" id="password"><br>
+            <button onclick="login()" class="signup-knof">Login</a><br>
         </div>
     </div>
     <!--Informacije-->
@@ -55,6 +56,20 @@
     <footer>
         <span>&copy; &nbsp; ZalioSW | All rights reserved.</span>
     </footer>
-    <script src="main.js"></script>
+    <script>
+
+        function login(): {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorMessage = document.getElementById('error-message');
+
+            if (username === '' || password === '') {
+                errorMessage.textContent = 'Username and password are neccessary!';
+                errorMessage.style.display = 'block';
+                return;
+            }
+        }
+
+    </script>
 </body>
 </html>

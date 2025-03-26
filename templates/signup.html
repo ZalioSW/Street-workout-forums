@@ -21,12 +21,6 @@
                     <li class="nav-item">
                         <a href="/posts">Posts</a>
                     </li>
-					<li class="nav-item">
-						<a href="/signup">Sign up</a>
-					</li>
-                    <li class="nav-item">
-                        <a href="/login">Login</a>
-                    </li>
                 </ul>
             </nav>
             <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
@@ -40,7 +34,7 @@
         <div class="signup-prijava">
             Username: <input type="text" id="ime"><br>
             Password: <input type="password" id="geslo"><br>
-            <a href="" onclick="podatkiGet()" class="signup-knof">Sign up</a><br>
+            <a href="" onclick="" class="signup-knof">Sign up</a><br>
         </div>
     </div>
     <!--Informacije-->
@@ -56,24 +50,5 @@
     <footer>
         <span>&copy; &nbsp; ZalioSW | All rights reserved.</span>
     </footer>
-    <script>
-        function podatkiGet() {
-            var ime = document.getElementById("ime");
-            var geslo = document.getElementById("geslo");
-            $.ajax({
-                url: "/signupGet",
-                data: {
-                    ime: ime.value,
-                    geslo: geslo.value
-                },
-                success: function(data) {
-                    if (data == "dela"){
-                        window.location.href = '/';
-                        console.log("dela");
-                    }
-                }
-            });
-        }
-    </script>
 </body>
 </html>
