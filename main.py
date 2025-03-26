@@ -13,13 +13,14 @@ def main_page():
     else:
         return render_template("home.html")
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login_page():
     if request.method == 'POST':
         try:
             username = request.form['username']
             password = request.form['password']
-            user = users.get(User.username == username)
+            User = Query()
+            user = users.search(User.username == username)
             if user:
                 if user['password'] == password:
                     session['username'] = username
@@ -27,7 +28,7 @@ def login_page():
                 else:
                     return jsonify({'success': False, 'error': 'Wrong password'})
             else:
-                return render_template('signup.html')
+                return "User not found. Please sign up."
         except Exception as e:
             print(f"Napaka pri prijavi: {str(e)}")
             return jsonify({'success': False, 'error': 'Prišlo je do napake'})
