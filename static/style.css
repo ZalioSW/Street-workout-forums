@@ -65,26 +65,6 @@ h1 {
     background-image: linear-gradient(to right, rgba(190, 190, 190, 0), rgba(255, 255, 255, 0.75), rgba(190, 190, 190, 0));
 }
 
-/* for the smartphones */
-@media screen and (max-width: 460px){
-    .container{
-        margin: 10px;
-        padding: 10px
-    }
-
-    .subforum-row {
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 50%;
-    }
-    
-    .subforum-column {
-        padding: 10px;
-        margin: 4px;
-        border-radius: 5px;
-        background-color: #111314;
-    }
-}
 
 /* Navbar */
 header {
@@ -156,36 +136,6 @@ header {
     font-family: coolvetica;
 }
 
-/*navbar for smartphones*/
-@media screen and (max-width: 460px){
-    .navigation {
-        max-height: auto;
-    }
-    
-    .nav-item a{
-        float: left;
-        display: inline;
-        text-align: center;
-        margin-inline: 3px;
-        font-size: 10px;
-        padding: 5px;
-        color: #fff;
-    }
-    
-    .close-icon {
-        font-size: 30px;
-    }
-    
-    .hide {
-        display: none;
-    }
-    
-    
-    .brand {
-        font-size: 20px;
-    }
-}
-
 /*search box*/
 .search-box {
     border: solid 1px #020f47;
@@ -215,14 +165,6 @@ header {
     background-color: #000;
     color: #fff;
     box-shadow: 1px 2px 3px #fff;
-}
-
-/*search box for smart phones*/
-@media screen and (max-width: 460px){
-    .search-box input, .search-box button, .search-box select{
-        min-width: 300px;
-        margin-top: 5px;
-    }
 }
 
 /*Forum info*/
@@ -361,73 +303,33 @@ footer {
 
 }
 
-/*************************************************************************************************************************************************/
-/*detail.html*/
+/*************************************************************************************************************************/
+/*signup.html*/
 
-.head{
-    display: flex;
-    background-color: #2c2c2c;
-    padding: 5px;
-    font-weight: bold;
-    font-size: 15px;
+.signup-okvir{
+    border: solid 2px white;
+    border-radius: 5px;
+    width: 500px;
+    margin: auto;
+    height: 600px;
 }
 
-.authors{
-    flex: 20%;
+.signup-naslov{
+    font-size: 75px;
+    text-align: center;
+    font-family: coolvetica;
+    background-color: #020f47;
 }
 
-.content{
-    flex: 80%;
+.signup-prijava{
+    text-align: center;
+    font-size: 40px;
 }
 
-.body{
-    display: flex;
-    background-color: #131415;
-    padding: 10px;
-    margin-top: 5px;
-}
-
-.body .authors .username{
-    font-size: 20px;
-}
-
-.body .authors img{
-    max-width: 50px;
-    max-height: 80px;
-}
-
-.body .content .comment button{
-    border: none;
-    padding: 10px;
-    font-weight: bolder;
-    cursor: pointer;
-    float: right;
-}
-
-/*Comment*/
-
-.comment-area{
-    margin-top: 50px;
-}
-
-.comment-area textarea{
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    margin-block: 10px;
-}
-
-.comment-area input{
-    float: right;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.comment-area input:hover{
-    border: solid 1px #000;
-}
-
-.comments-container{
-    margin-top: 50px;
+.signup-knof{
+    border: solid 2px white;
+    border-radius: 5px;
+    position: relative;
+    bottom: 0;
+    background-color: white;
 }
