@@ -28,6 +28,7 @@
         <div>
             {% if username %}
                 <p>{{username}}</p>
+                <button onclick="logout()">Logout</a>
             {% else %}
                 <a href="/login">Login</a>
             {% endif %}
@@ -62,6 +63,12 @@
     <footer>
         <span>&copy; &nbsp; ZalioSW | All rights reserved.</span>
     </footer>
-    <script src="main.js"></script>
+    <script>
+
+        function logout() {
+            window.location.href = '/logout';
+        }
+
+    </script>
 </body>
 </html>
