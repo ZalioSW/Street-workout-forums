@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Workout Forum</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <nav class="navigation hide" id="navigation">
+                <ul class="nav-list">
+                    <span class="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <li class="nav-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/posts">Posts</a>
+                    </li>
+                    {% if username %}
+                        <li class="nav-item">
+                            {{ username }}
+                        </li>
+                        <li class="nav-item">
+                            <button class="logout-btn" onclick="logout()">Logout</button>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="/login" class="login-btn">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
+            <div class="brand">Street Workout Forum</div>
+        </div>
+    </header>
+	<div class="container">
+        <div class="subforum">
+            <div class="subforum-title">
+                Your title: <input type="text" id="title">
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-description subforum-column">
+                    Description: <textarea id="description">Enter your description...</textarea>
+                </div>
+                <div class="subforum-info subforum-column last_post">
+                    By the creator <a href="">ZalioSW</a>
+                    <br>
+                </div>
+            </div>
+            <button onclick="createPost()">Create</button>
+        </div>
+    </div>
+    <!--Informacije-->
+    <div class="forum-info">
+        <div class="chart">
+            Street Workout Forum - Stats &nbsp;<i class="fa fa-bar-chart"></i>
+        </div>
+        <div>
+            <span><u>3,123 Posts</u> Posts in <u>1,210</u> Topics by <u>23,123 Users</u></span><br>
+            <span>Latest Post: <b><a href="#">Random post</a></b> on 24 jan 2025</span>
+        </div>
+    </div>
+    <footer>
+        <span>&copy; &nbsp; ZalioSW | All rights reserved.</span>
+    </footer>
+    <script>
+
+        function logout() {
+            window.location.href = '/logout';
+        }
+
+        function createPost() {
+            var title = document.getElementById("title")
+            var description = document.getElementById("description")
+
+            $.ajax({
+                url: "createPost",
+                type: "POST",
+                data: JSON.stringify({
+                    title: title,
+                    description: description
+                }),
+            success: function(response) {
+                alert("Post created successfully!");
+                window.location.href = "/posts"
+            },
+            error: function(xhr, status, error) {
+                alert("Error creating post: " + xhr.responseText);
+                console.log(error);
+            }
+            });
+        }
+
+    </script>
+</body>
+</html>

@@ -58,4 +58,13 @@ def logout_page():
 def posts_page():
     return render_template("posts.html")
 
+@app.route("/createPost", methods=["POST"])
+def createPost():
+    if 'username' not in session:
+        return render_template("login.html")
+    title = request.form["title"]
+    description = request.form["description"]
+    posts.insert({"title": title, "description": description})
+    return render_template("createPost.html")
+
 app.run(debug=True)

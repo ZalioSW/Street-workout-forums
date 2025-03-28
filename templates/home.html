@@ -20,18 +20,22 @@
                     <li class="nav-item">
                         <a href="/posts">Posts</a>
                     </li>
+                    {% if username %}
+                        <li class="nav-item">
+                            {{ username }}
+                        </li>
+                        <li class="nav-item">
+                            <button class="logout-btn" onclick="logout()">Logout</button>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a href="/login" class="login-btn">Login</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
             <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
             <div class="brand">Street Workout Forum</div>
-        </div>
-        <div>
-            {% if username %}
-                <p>{{username}}</p>
-                <button onclick="logout()">Logout</a>
-            {% else %}
-                <a href="/login">Login</a>
-            {% endif %}
         </div>
     </header>
 	<div class="container">
