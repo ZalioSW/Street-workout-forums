@@ -76,24 +76,33 @@
         }
 
         function createPost() {
-            var title = document.getElementById("title")
-            var description = document.getElementById("description")
+            var title = document.getElementById("title").value.trim();
+            var description = document.getElementById("description").value.trim();
+
+            if (!title || !description) {  
+                alert("Title and description cannot be empty!");
+                return;
+            }
+
+            console.log("Title: " + title);
+            console.log("Description: " + description);
 
             $.ajax({
-                url: "createPost",
+                url: "/createPost",
                 type: "POST",
-                data: JSON.stringify({
+                data: {
                     title: title,
                     description: description
-                }),
-            success: function(response) {
-                alert("Post created successfully!");
-                window.location.href = "/posts"
-            },
-            error: function(xhr, status, error) {
-                alert("Error creating post: " + xhr.responseText);
-                console.log(error);
-            }
+                },
+                contentType: "application/x-www-form-urlencoded",
+                success: function(response) {
+                    alert("Post created successfully!");
+                    window.location.href = "/posts";
+                },
+                error: function(xhr, status, error) {
+                    alert("Error creating post: " + xhr.responseText);
+                    console.log(error);
+                }
             });
         }
 

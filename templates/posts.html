@@ -46,12 +46,13 @@
                 <div class="replies">Replies/Views</div>
                 <div class="last-reply">Last reply</div>
             </div>
-           <div class="table-row">
-                <div class="subjects">
-                    <a href="">How to start with endurance calisthenis?</a>
-                    <br>
-                    <span>Started by <b><a href="">User</a></b></span>
-                </div>
+            {% for post in posts %}
+            <div class="table-row">
+                    <div class="subjects">
+                        <a href="">{{ post['title'] }}</a>
+                        <br>
+                        <span>Started by <b><a href="">{{ post['author'] }}</a></b></span>
+                    </div>
                 <div class="replies">
                     2 replies <br> 125 views
                 </div>
@@ -61,6 +62,9 @@
                     By <b><a href="#">User</a></b>
                 </div>
             </div>
+            {% else %}
+                <p>No posts available.</p>
+            {% endfor %}
     </div>
 
     <!--Strani-->

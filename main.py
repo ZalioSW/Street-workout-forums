@@ -56,15 +56,27 @@ def logout_page():
 
 @app.route("/posts")
 def posts_page():
-    return render_template("posts.html")
+    if 'username' not in session:
+        return redirect(url_for("login"))
+    posts = db.table("objave").all()
+    return render_template("posts.html", posts=posts)
 
-@app.route("/createPost", methods=["POST"])
+@app.route("/createPost", methods=["GET", "POST"])
 def createPost():
     if 'username' not in session:
         return render_template("login.html")
-    title = request.form["title"]
-    description = request.form["description"]
-    posts.insert({"title": title, "description": description})
+    if request.method == "POST":
+        title = request.form.get("title")
+        description = request.form.get("description")
+        username = session["username"]
+        post_id = len(db.table("objave").all()) + 1 
+        new_post = {
+            "id": post_id,
+            "title": title,
+            "description": description,
+            "author": username
+        }
+        db.table("objave").insert(new_post)
     return render_template("createPost.html")
 
 app.run(debug=True)
