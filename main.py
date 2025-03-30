@@ -79,4 +79,13 @@ def createPost():
         db.table("objave").insert(new_post)
     return render_template("createPost.html")
 
+@app.route("/displayPost/<int:post_id>")
+def displayPost(post_id):
+    post = db.table("objave").get(doc_id=post_id)
+    if not post:
+        return "Post not found", 404 
+    return render_template("displayPost.html", post=post)
+
+    
+
 app.run(debug=True)

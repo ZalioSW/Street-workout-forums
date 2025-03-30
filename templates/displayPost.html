@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Workout Forum</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../static/main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <nav class="navigation hide" id="navigation">
+                <ul class="nav-list">
+                    <span class="close-icon" onclick="showIconBar()"><i class="fa fa-close"></i></span>
+                    <li class="nav-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/posts">Posts</a>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#" class="bar-icon" id="iconBar" onclick="hideIconBar()"><i class="fa fa-bars"></i></a>
+            <div class="brand">Street Workout Forum</div>
+        </div>
+        <!--Search box-->
+        <div class="search-box">
+            <div>
+                <select name="" id="">
+                    <option value="everything">Everything</option>
+                    <option value="titles">Titles</option>
+                    <option value="description">Description</option>
+                </select>
+                <input type="text" name="q" id="" placeholder="search...">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+    <a href="/createPost"><i class="fa fa-plus fa-5x"></i></a>
+    <div class="container">
+        <div class="subforum">
+            <div class="subforum-title">
+                <h1>{{ post['title'] }}</h1>
+            </div>
+            <div class="subforum-row">
+                <div class="subforum-description subforum-column">
+                    <h1>{{ post['description'] }}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <span>&copy; &nbsp; ZalioSW | All rights reserved.</span>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

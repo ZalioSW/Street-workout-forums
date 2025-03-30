@@ -49,7 +49,7 @@
             {% for post in posts %}
             <div class="table-row">
                     <div class="subjects">
-                        <a href="">{{ post['title'] }}</a>
+                        <a href="/displayPost/{{ post['id'] }}">{{ post['title'] }}</a>
                         <br>
                         <span>Started by <b><a href="">{{ post['author'] }}</a></b></span>
                     </div>
