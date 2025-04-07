@@ -57,7 +57,7 @@ def logout_page():
 @app.route("/posts")
 def posts_page():
     if 'username' not in session:
-        return redirect(url_for("login"))
+        return redirect(url_for("login_page"))
     posts = db.table("objave").all()
     return render_template("posts.html", posts=posts)
 
