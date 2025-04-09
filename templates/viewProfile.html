@@ -7,7 +7,6 @@
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='main.js') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
@@ -34,14 +33,8 @@
 	<div class="container">
         <div class="subforum">
             <div class="subforum-title">
-                Your title: <input type="text" id="title">
+                <h1>{{ username }}</h1>
             </div>
-            <div class="subforum-row">
-                <div class="subforum-description subforum-column">
-                    Description: <textarea id="description">Enter your description...</textarea>
-                </div>
-            </div>
-            <button onclick="createPost()">Create</button>
         </div>
     </div>
     <!--Informacije-->
@@ -61,37 +54,6 @@
 
         function logout() {
             window.location.href = '/logout';
-        }
-
-        function createPost() {
-            var title = document.getElementById("title").value.trim();
-            var description = document.getElementById("description").value.trim();
-
-            if (!title || !description) {  
-                alert("Title and description cannot be empty!");
-                return;
-            }
-
-            console.log("Title: " + title);
-            console.log("Description: " + description);
-
-            $.ajax({
-                url: "/createPost",
-                type: "POST",
-                data: {
-                    title: title,
-                    description: description
-                },
-                contentType: "application/x-www-form-urlencoded",
-                success: function(response) {
-                    alert("Post created successfully!");
-                    window.location.href = "/posts";
-                },
-                error: function(xhr, status, error) {
-                    alert("Error creating post: " + xhr.responseText);
-                    console.log(error);
-                }
-            });
         }
 
     </script>

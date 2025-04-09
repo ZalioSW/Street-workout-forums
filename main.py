@@ -82,9 +82,17 @@ def createPost():
 @app.route("/displayPost/<int:post_id>")
 def displayPost(post_id):
     post = db.table("objave").get(doc_id=post_id)
+    username = session['username']
     if not post:
         return "Post not found", 404 
-    return render_template("displayPost.html", post=post)
+    return render_template("displayPost.html", post=post, username=username)
+
+@app.route("/viewProfile")
+def viewProfile():
+    if 'username' not in session:
+        return render_template("login.html")
+    username = session['username']
+    return render_template("viewProfile.html", username=username)
 
     
 

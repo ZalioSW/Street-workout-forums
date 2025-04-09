@@ -19,6 +19,12 @@
                     <li class="nav-item">
                         <a href="/posts">Posts</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="/viewProfile">{{ username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="logout-btn" onclick="logout()">Logout</a>
+                    </li>
                 </ul>
             </nav>
             <div class="brand">Street Workout Forum</div>
@@ -49,7 +55,7 @@
                     <div class="subjects">
                         <a href="/displayPost/{{ post['id'] }}">{{ post['title'] }}</a>
                         <br>
-                        <span>Started by <b><a href="">{{ post['author'] }}</a></b></span>
+                        <span>Started by <b><a href="/viewProfile">{{ post['author'] }}</a></b></span>
                     </div>
                 <div class="replies">
                     2 replies <br> 125 views
