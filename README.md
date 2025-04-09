@@ -66,4 +66,8 @@ Za financiranje in rast platforme bomo raziskali naslednje možnosti prihodkov:
 
 ---
 
+<<<<<<< HEAD
 Hvala, da ste obiskali **Street Workout Forums**! Upamo, da boste uživali v sodelovanju na naši platformi in se povežali z drugimi, ki delijo vašo strast do street workout-a!
+=======
+Hvala, da ste obiskali **Street Workout Forums**! Upamo, da boste uživali v sodelovanju na naši platformi in se povežali z drugimi, ki delijo vašo strast do street workout-a!
+>>>>>>> 2f8a577fb4c78f3978e8521bba17ca2451530a4e
