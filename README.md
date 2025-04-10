@@ -29,7 +29,7 @@ Street workout entuziasti pogosto nimajo enostavnega načina, kako se povezati z
 - **Povezovanje uporabnikov:** Omogoča iskanje in povezovanje s skupnostmi v lokalnem okolju za vadbene dogodke.
 - **Izmenjava izkušenj:** Forum omogoča lažjo izmenjavo napotkov, nasvetov in izkušenj med uporabniki različnih stopenj izkušenj.
 
-## Ciljna Skupina
+## Ciljna skupina
 
 Naša ciljna skupina so posamezniki vseh starosti, ki:
 - Redno trenirajo street workout.
@@ -46,7 +46,7 @@ Naša ciljna skupina so posamezniki vseh starosti, ki:
 4. **Dogodki:** Uporabniki lahko ustvarjajo, delijo in se prijavljajo na vadbene dogodke ali tekmovanja.
 5. **Povezovanje z drugimi uporabniki:** Povezovanje in komunikacija med uporabniki z zasebnimi sporočili ali komentarji.
 
-## Struktura Aplikacije
+## Struktura aplikacije
 
 - **Frontend:** HTML, CSS, JavaScript (React ali osnovni HTML/CSS za MVP)
 - **Backend:** Flask (Python) za obvladovanje uporabniških podatkov, forumov in dogodkov.
@@ -58,7 +58,7 @@ Naša ciljna skupina so posamezniki vseh starosti, ki:
 
 **Street Workout Forums** je platforma, ki omogoča ljubiteljem street workout-a, da se povežejo, delijo izkušnje in se udeležujejo lokalnih dogodkov. Ponuja enostaven način za iskanje drugih uporabnikov, pridobivanje napotkov in ustvarjanje skupnosti, ki je osredotočena na skupne cilje v fitnesu.
 
-## Viri Prihodkov
+## Viri prihodkov
 
 Za financiranje in rast platforme bomo raziskali naslednje možnosti prihodkov:
 - **Partnerstva z blagovnimi znamkami:** Sodelovanje z blagovnimi znamkami, ki prodajajo opremo za street workout ali športno prehrano, za promocijske akcije na platformi.

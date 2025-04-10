@@ -31,11 +31,22 @@
         </div>
     </header>
 	<div class="container">
-        <div class="subforum">
-            <div class="subforum-title">
-                <h1>{{ username }}</h1>
+        <div class="posts-table">
+            <div class="table-head">
+                <div class="subjects">{{ username }}</div>
             </div>
-        </div>
+            {% if posts %}
+            {% for post in posts %}
+            <div class="table-row">
+                <div class="subjects">
+                    <a href="/displayPost/{{ post['id'] }}">{{ post['title'] }}</a>
+                    <br>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+                <p>No posts available.</p>
+            {% endif %}
     </div>
     <!--Informacije-->
     <div class="forum-info">
