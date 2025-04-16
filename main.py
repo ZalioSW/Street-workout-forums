@@ -3,6 +3,7 @@ from tinydb import TinyDB, Query
 db = TinyDB('forum.json')
 users = db.table('uporabniki')
 posts = db.table('objave')
+comments = db.table('komentarji')
 
 app = Flask(__name__)
 app.secret_key = "zaliosw_najjaci123"
@@ -79,13 +80,29 @@ def createPost():
         db.table("objave").insert(new_post)
     return render_template("createPost.html")
 
-@app.route("/displayPost/<int:post_id>")
+@app.route("/displayPost/<int:post_id>", methods=["GET", "POST"])
 def displayPost(post_id):
     post = db.table("objave").get(doc_id=post_id)
     username = session['username']
     if not post:
         return "Post not found", 404 
-    return render_template("displayPost.html", post=post, username=username)
+    Comment = Query()
+    comments = db.table("comments").search(Comment.post_id == post_id)
+    print("Comments for Post ID:", post_id, comments)
+    if request.method == "POST":
+        if "username" in session:
+            comment_content = request.form.get("comment")
+            comment = {
+                "post_id": post_id,
+                "author": username,
+                "comment": comment_content
+            }
+            db.table("comments").insert(comment)
+            return redirect(url_for('displayPost', post_id=post_id))
+        else:
+            return redirect(url_for('login_page'))
+
+    return render_template("displayPost.html", post=post, comments=comments)
 
 @app.route("/viewProfile/<string:author>")
 def viewProfile(author):
@@ -95,6 +112,6 @@ def viewProfile(author):
     posts = db.table("objave").search(Post.author == author)
     return render_template("viewProfile.html", username=author, posts=posts)
 
-    
+
 
 app.run(debug=True)

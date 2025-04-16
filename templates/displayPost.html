@@ -37,9 +37,31 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        Comments:
+        {% for comment in comments %}
+            <div class="comment">
+                <p><strong>{{ comment['author'] }}:</strong> {{ comment['comment'] }}</p>
+            </div>
+        {% endfor %}
+        {% if 'username' in session %}
+            <form action="" method="POST">
+                <textarea name="comment" placeholder="Write a comment..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        {% else %}
+            <p>Please log in to comment.</p>
+        {% endif %}
+    </div>
     <footer>
         <span>&copy; &nbsp; ZalioSW | All rights reserved.</span>
     </footer>
-    <script src="main.js"></script>
+    <script src="main.js">
+
+        function logout() {
+            window.location.href = '/logout';
+        }
+
+    </script>
 </body>
 </html>
