@@ -60,7 +60,7 @@ def posts_page():
     if 'username' not in session:
         return redirect(url_for("login_page"))
     posts = db.table("objave").all()
-    return render_template("posts.html", posts=posts)
+    return render_template("posts.html", posts=posts, username=session['username'])
 
 @app.route("/createPost", methods=["GET", "POST"])
 def createPost():
@@ -116,12 +116,14 @@ def viewProfile(author):
 def deletePost(post_id):
     if 'username' not in session:
         return render_template("login.html")
+    author = session['username']
     Post = Query()
     posts = db.table("objave").search(Post.id == post_id)
     if posts:
         db.table("objave").remove(Post.id == post_id)
-        return redirect(url_for(viewProfile))
-
+        return redirect(url_for("viewProfile", author=author))
+    else:
+        return "post does not exist"
     
 
 
