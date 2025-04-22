@@ -41,6 +41,7 @@
                 <div class="subjects">
                     <a href="/displayPost/{{ post['id'] }}">{{ post['title'] }}</a>
                     <br>
+                    <a href="/deletePost{{ post['id'] }}">Delete</a>
                 </div>
             </div>
             {% endfor %}
@@ -66,6 +67,7 @@
         function logout() {
             window.location.href = '/logout';
         }
+
 
     </script>
 </body>

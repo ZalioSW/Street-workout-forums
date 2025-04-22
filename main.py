@@ -112,6 +112,17 @@ def viewProfile(author):
     posts = db.table("objave").search(Post.author == author)
     return render_template("viewProfile.html", username=author, posts=posts)
 
+@app.route("/deletePost/<int:post_id>")
+def deletePost(post_id):
+    if 'username' not in session:
+        return render_template("login.html")
+    Post = Query()
+    posts = db.table("objave").search(Post.id == post_id)
+    if posts:
+        db.table("objave").remove(Post.id == post_id)
+        return redirect(url_for(viewProfile))
+
+    
 
 
 app.run(debug=True)
