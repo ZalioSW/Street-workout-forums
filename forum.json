@@ -1,1 +1,27 @@
-{"uporabniki": {"1": {"username": "zaliosw", "password": "123"}, "2": {"username": "corke", "password": "rdmamdareta123"}}, "objave": {}, "comments": {"1": {"post_id": 1, "author": "zaliosw", "comment": "a dela"}, "2": {"post_id": 3, "author": "zaliosw", "comment": "dj deli"}}}
+{
+  "uporabniki": {
+    "1": {
+      "username": "zaliosw",
+      "password": "123"
+    },
+    "2": {
+      "username": "naja",
+      "password": "123"
+    }
+  },
+  "objave": {
+    "1": {
+      "id": 1,
+      "title": "ads",
+      "description": "sd",
+      "author": "zaliosw"
+    }
+  },
+  "comments": {
+    "1": {
+      "post_id": 1,
+      "author": "zaliosw",
+      "comment": "asd"
+    }
+  }
+}

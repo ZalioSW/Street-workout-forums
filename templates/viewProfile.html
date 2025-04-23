@@ -41,7 +41,9 @@
                 <div class="subjects">
                     <a href="/displayPost/{{ post['id'] }}">{{ post['title'] }}</a>
                     <br>
-                    <a href="/deletePost/{{ post['id'] }}">Delete</a>
+                    {% if username == session['username'] %}
+                        <a href="/deletePost/{{ post['id'] }}">Delete</a>
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}

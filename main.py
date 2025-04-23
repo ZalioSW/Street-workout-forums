@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-from tinydb import TinyDB, Query
+from tinydb import TinyDB, Query, where
 db = TinyDB('forum.json')
 users = db.table('uporabniki')
 posts = db.table('objave')
@@ -119,12 +119,18 @@ def deletePost(post_id):
     author = session['username']
     Post = Query()
     posts = db.table("objave").search(Post.id == post_id)
+    comments = db.table("comments").all()
     if posts:
         db.table("objave").remove(Post.id == post_id)
+        for comPostID in comments:
+            if post_id == int(comPostID['post_id']):
+                db.table("comments").remove(where('post_id') == post_id) 
         return redirect(url_for("viewProfile", author=author))
     else:
         return "post does not exist"
+
+@app.route("/deleteComment/<int:post_id>")
+def deleteComment(post_id):
+    print(post_id)
     
-
-
 app.run(debug=True)
