@@ -43,7 +43,6 @@ def signup_page():
             username = request.form['username']
             password = request.form['password']
             users.insert({'username': username, 'password': password})
-            session['username'] = username
             return jsonify({'success': True})
         except Exception as e:
             print(f"Napaka pri prijavi: {str(e)}")
@@ -88,7 +87,7 @@ def displayPost(post_id):
         return "Post not found", 404 
     Comment = Query()
     comments = db.table("comments").search(Comment.post_id == post_id)
-    print("Comments for Post ID:", post_id, comments)
+    print(post_id, comments)
     if request.method == "POST":
         if "username" in session:
             comment_content = request.form.get("comment")
@@ -131,6 +130,10 @@ def deletePost(post_id):
 
 @app.route("/deleteComment/<int:post_id>")
 def deleteComment(post_id):
-    print(post_id)
+    comments = db.table("comments").all()
+    for comment in comments:
+        if comment['post_id'] == post_id:
+            db.table("comments").remove(where('post_id') == post_id)
+    return redirect(url_for("displayPost", post_id=post_id))
     
 app.run(debug=True)
