@@ -43,7 +43,7 @@
             <div class="comment">
                 <p><strong>{{ comment['author'] }}:</strong> {{ comment['comment'] }}</p>
                 {% if 'username' in session and comment['author'] == session['username'] %}
-                    <a href="/deleteComment/1">Delete</a>
+                    <a href="/deleteComment/{{ comment['post_id'] }}">Delete</a>
                 {% endif %}
             </div>
         {% endfor %}

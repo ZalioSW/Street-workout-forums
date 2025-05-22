@@ -29,41 +29,19 @@
             </nav>
             <div class="brand">Street Workout Forum</div>
         </div>
-        <!--Search box-->
-        <div class="search-box">
-            <div>
-                <select name="" id="">
-                    <option value="everything">Everything</option>
-                    <option value="titles">Titles</option>
-                    <option value="description">Description</option>
-                </select>
-                <input type="text" name="q" id="" placeholder="search...">
-                <button><i class="fa fa-search"></i></button>
-            </div>
-        </div>
     </header>
     <a href="/createPost"><i class="fa fa-plus fa-5x"></i></a>
     <div class="container">
         <div class="posts-table">
             <div class="table-head">
-                <div class="subjects">Subjects</div>
-                <div class="replies">Replies/Views</div>
-                <div class="last-reply">Last reply</div>
+                <div class="subjects">Posts</div>
             </div>
             {% for post in posts %}
             <div class="table-row">
-                    <div class="subjects">
-                        <a href="/displayPost/{{ post['id'] }}">{{ post['title'] }}</a>
-                        <br>
-                        <span>Started by <b><a href="/viewProfile/{{ post['author'] }}">{{ post['author'] }}</a></b></span>
-                    </div>
-                <div class="replies">
-                    2 replies <br> 125 views
-                </div>
-                <div class="last-reply">
-                    Jan 30 2025
+                <div class="subjects">
+                    <a href="/displayPost/{{ post['id'] }}">{{ post['title'] }}</a>
                     <br>
-                    By <b><a href="#">User</a></b>
+                    <span>Started by <b><a href="/viewProfile/{{ post['author'] }}">{{ post['author'] }}</a></b></span>
                 </div>
             </div>
             {% else %}
@@ -71,10 +49,6 @@
             {% endfor %}
     </div>
 
-    <!--Strani-->
-        <div class="pagination">
-            pages: <a href="#">1</a><a href="#">2</a><a href="#">3</a>
-        </div>
     <footer>
         <span>&copy; &nbsp; ZalioSW | All rights reserved.</span>
     </footer>
